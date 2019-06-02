@@ -1,7 +1,8 @@
 package main.java.com.senebien.controller;
 
-import main.java.com.senebien.dao.interfaces.IProfil;
-import main.java.com.senebien.dao.interfaces.IUtilisateur;
+
+import main.java.com.senebien.dao.IProfilDao;
+import main.java.com.senebien.dao.IUtilisateurDao;
 import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
 import main.java.com.senebien.utils.JsonResponse;
@@ -22,12 +23,11 @@ import java.util.List;
  */
 @Path("/user")
 public class UtilisateurController {
+    @EJB
+    IUtilisateurDao utilisateurDao;
 
     @EJB
-    private IUtilisateur iUtilisateur;
-
-    @EJB
-    private IProfil iProfil;
+    IProfilDao profilDao;
 
     private JsonResponse jsonResponse = new JsonResponse();
 
@@ -37,7 +37,7 @@ public class UtilisateurController {
     @Produces(MediaType.APPLICATION_JSON)
     public String addUser(String body) {
         Utilisateur utilisateur = jsonResponse.getGsonInstance().fromJson(body, Utilisateur.class);
-        if (iUtilisateur.create(utilisateur))
+        if (utilisateurDao.create(utilisateur))
             return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("success", true));
         else
             return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_BAD_REQUEST));
@@ -47,7 +47,7 @@ public class UtilisateurController {
     @Path("/all-user")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllUser() {
-        List<Utilisateur> utilisateurs = iUtilisateur.all();
+        List<Utilisateur> utilisateurs = utilisateurDao.all();
         return jsonResponse.getGsonInstance().toJson(utilisateurs);
     }
 
@@ -55,7 +55,7 @@ public class UtilisateurController {
     @Path("/all-activated-user")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllActivatedUser() {
-        List<Utilisateur> utilisateurs = iUtilisateur.allActivatedUser();
+        List<Utilisateur> utilisateurs = utilisateurDao.allActivatedUser();
         return jsonResponse.getGsonInstance().toJson(utilisateurs);
     }
 
@@ -63,7 +63,7 @@ public class UtilisateurController {
     @Path("/all-disabled-user")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllDisabledUser() {
-        List<Utilisateur> utilisateurs = iUtilisateur.allDesactivatedUser();
+        List<Utilisateur> utilisateurs = utilisateurDao.allDesactivatedUser();
         return jsonResponse.getGsonInstance().toJson(utilisateurs);
     }
 
@@ -71,7 +71,7 @@ public class UtilisateurController {
     @Path("/all-archived-user")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllArchivedUser() {
-        List<Utilisateur> utilisateurs = iUtilisateur.allArchivedUser();
+        List<Utilisateur> utilisateurs = utilisateurDao.allArchivedUser();
         return jsonResponse.getGsonInstance().toJson(utilisateurs);
     }
 
@@ -79,7 +79,7 @@ public class UtilisateurController {
     @Path("/all-unarchived-user")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllUnarchivedUser() {
-        List<Utilisateur> utilisateurs = iUtilisateur.allUnarchivedUser();
+        List<Utilisateur> utilisateurs = utilisateurDao.allUnarchivedUser();
         return jsonResponse.getGsonInstance().toJson(utilisateurs);
     }
 
@@ -88,7 +88,7 @@ public class UtilisateurController {
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
     public String getUserById(String body) {
-        Utilisateur utilisateur = iUtilisateur.getUserById(Long.valueOf(body));
+        Utilisateur utilisateur = utilisateurDao.getUserById(Long.valueOf(body));
         if (utilisateur != null) {
             return jsonResponse.getGsonInstance().toJson(utilisateur);
         } else
@@ -101,9 +101,9 @@ public class UtilisateurController {
     @Produces(MediaType.APPLICATION_JSON)
     public String login(String body) {
         UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
-        Profil profil = iProfil.getProfilByLibelle(userLogin.getProfil());
+        Profil profil = profilDao.getProfilByLibelle(userLogin.getProfil());
         if (profil != null) {
-            if (iUtilisateur.getUserByUsernameAndPasswordAndProfile(userLogin.getLogin(), userLogin.getPassword(), profil)) {
+            if (utilisateurDao.getUserByUsernameAndPasswordAndProfile(userLogin.getLogin(), userLogin.getPassword(), profil)) {
                 return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("success", true));
             } else return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_FORBIDDEN));
         } else return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_FORBIDDEN));

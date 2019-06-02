@@ -1,8 +1,6 @@
-package main.java.com.senebien.dao.implementation;
+package main.java.com.senebien.dao;
 
 import main.java.com.senebien.config.HibernateInitializerConfig;
-import main.java.com.senebien.dao.ImplementationUtils;
-import main.java.com.senebien.dao.interfaces.IUtilisateur;
 import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
 import org.hibernate.Session;
@@ -15,21 +13,32 @@ import java.util.List;
  * @since 2019-06-01
  * @version 1.0.0
  *
- * Class that implement the IUtilisateur interface
+ * Class that implement the IUtilisateurDao interface
  */
 @Stateless
-public class UtilisateurImplementation implements IUtilisateur {
-
+public class UtilisateurDao implements IUtilisateurDao {
     private Session session = HibernateInitializerConfig.getSession();
 
     @Override
     public boolean create(Utilisateur user) {
-        return ImplementationUtils.create(session, user);
+        try {
+            session.save(user);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean update(Utilisateur user) {
-        return ImplementationUtils.update(session, user);
+        try {
+            session.update(user);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

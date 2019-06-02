@@ -1,4 +1,4 @@
-package main.java.com.senebien.dao.interfaces;
+package main.java.com.senebien.dao;
 
 import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
@@ -14,7 +14,7 @@ import java.util.List;
  * Interface containing all user prototype method with the database
  */
 @Local
-public interface IUtilisateur {
+public interface IUtilisateurDao {
     /**
      * Function prototype that create a user in the database
      * @param user user that will be create

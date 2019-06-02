@@ -1,4 +1,4 @@
-package main.java.com.senebien.dao.interfaces;
+package main.java.com.senebien.dao;
 
 import main.java.com.senebien.models.Profil;
 
@@ -11,21 +11,16 @@ import java.util.List;
  * @version 1.0.0
  */
 @Local
-public interface IProfil {
-
+public interface IProfilDao {
     boolean create(Profil profil);
 
     boolean update(Profil profil);
 
     List<Profil> all();
 
-    List<Profil> allActivatedProfil();
+    List<Profil> allByStatusProfil(Boolean status);
 
-    List<Profil> allDisabledProfil();
-
-    List<Profil> allArchivedProfil();
-
-    List<Profil> allNoneArchivedProfil();
+    List<Profil> allByArchivedProfil(Boolean archive);
 
     Profil getOneById(Long id);
 

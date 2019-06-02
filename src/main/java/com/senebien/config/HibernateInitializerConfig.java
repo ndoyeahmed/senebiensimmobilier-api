@@ -17,7 +17,7 @@ public class HibernateInitializerConfig {
     static {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure("/hibernate.cfg-heroku.xml");
+            configuration.configure("/hibernate.cfg.xml");
 
             ourSessionFactory = configuration.buildSessionFactory();
         } catch (Throwable ex) {
@@ -27,12 +27,13 @@ public class HibernateInitializerConfig {
     }
 
     public static Session getSession() throws HibernateException {
-        return ourSessionFactory.openSession();
+        if (ourSessionFactory.isOpen()) {
+            return ourSessionFactory.getCurrentSession();
+        } else {
+            return ourSessionFactory.openSession();
+        }
     }
 
-    public static void closeSession() throws HibernateException {
-        ourSessionFactory.close();
-    }
 
     public void initDatabase() throws Exception {
         final Session session = getSession();
