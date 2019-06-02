@@ -17,7 +17,7 @@ public class HibernateInitializerConfig {
     static {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure("/hibernate.cfg.xml");
+            configuration.configure("/hibernate.cfg-heroku.xml");
 
             ourSessionFactory = configuration.buildSessionFactory();
         } catch (Throwable ex) {
