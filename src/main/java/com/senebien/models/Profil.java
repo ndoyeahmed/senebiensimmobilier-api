@@ -2,7 +2,6 @@ package main.java.com.senebien.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author Mouhamed NDOYE

@@ -1,6 +1,7 @@
 package main.java.com.senebien.dao.implementation;
 
 import main.java.com.senebien.config.HibernateInitializerConfig;
+import main.java.com.senebien.dao.ImplementationUtils;
 import main.java.com.senebien.dao.interfaces.IProfil;
 import main.java.com.senebien.models.Profil;
 import org.hibernate.Session;
@@ -19,21 +20,12 @@ public class ProfilImplementation implements IProfil {
 
     @Override
     public boolean create(Profil profil) {
-       try {
-           session.beginTransaction();
-           session.save(profil);
-           session.getTransaction().commit();
-           return true;
-       } catch (Exception e) {
-           session.getTransaction().rollback();
-           e.printStackTrace();
-           return false;
-       }
+       return ImplementationUtils.create(session, profil);
     }
 
     @Override
     public boolean update(Profil profil) {
-        return false;
+        return ImplementationUtils.update(session, profil);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package main.java.com.senebien.dao.implementation;
 
 import main.java.com.senebien.config.HibernateInitializerConfig;
+import main.java.com.senebien.dao.ImplementationUtils;
 import main.java.com.senebien.dao.interfaces.IUtilisateur;
 import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
@@ -23,30 +24,12 @@ public class UtilisateurImplementation implements IUtilisateur {
 
     @Override
     public boolean create(Utilisateur user) {
-        try {
-            session.beginTransaction();
-            session.save(user);
-            session.getTransaction().commit();
-            return true;
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-            e.printStackTrace();
-            return false;
-        }
+        return ImplementationUtils.create(session, user);
     }
 
     @Override
     public boolean update(Utilisateur user) {
-        try {
-            session.beginTransaction();
-            session.update(user);
-            session.getTransaction().commit();
-            return true;
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-            e.printStackTrace();
-            return false;
-        }
+        return ImplementationUtils.update(session, user);
     }
 
     @Override
@@ -121,9 +104,7 @@ public class UtilisateurImplementation implements IUtilisateur {
                     .setParameter("password", password)
                     .setParameter("profil", profil.getId())
                     .getSingleResult();
-            if (utilisateur != null && utilisateur.getId() != null)
-                return true;
-            else return false;
+            return utilisateur != null && utilisateur.getId() != null;
         } catch (Exception e) {
             e.printStackTrace();
             return false;
