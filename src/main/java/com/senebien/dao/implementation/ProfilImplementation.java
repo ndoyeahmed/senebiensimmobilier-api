@@ -1,7 +1,7 @@
 package main.java.com.senebien.dao.implementation;
 
 import main.java.com.senebien.config.HibernateInitializerConfig;
-import main.java.com.senebien.dao.Interfaces.IProfil;
+import main.java.com.senebien.dao.interfaces.IProfil;
 import main.java.com.senebien.models.Profil;
 import org.hibernate.Session;
 

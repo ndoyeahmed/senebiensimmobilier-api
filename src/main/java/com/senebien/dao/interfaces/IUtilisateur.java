@@ -1,4 +1,4 @@
-package main.java.com.senebien.dao.Interfaces;
+package main.java.com.senebien.dao.interfaces;
 
 import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;

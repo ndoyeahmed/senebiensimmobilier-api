@@ -1,7 +1,7 @@
 package main.java.com.senebien.controller;
 
-import main.java.com.senebien.dao.Interfaces.IProfil;
-import main.java.com.senebien.dao.Interfaces.IUtilisateur;
+import main.java.com.senebien.dao.interfaces.IProfil;
+import main.java.com.senebien.dao.interfaces.IUtilisateur;
 import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
 import main.java.com.senebien.utils.JsonResponse;
