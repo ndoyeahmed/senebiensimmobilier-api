@@ -1,7 +1,6 @@
 package main.java.com.senebien.dao;
 
 import main.java.com.senebien.config.HibernateInitializerConfig;
-import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
 import org.hibernate.Session;
 
@@ -22,9 +21,14 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public boolean create(Utilisateur user) {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             session.save(user);
+            session.getTransaction().commit();
             return true;
         } catch (Exception e) {
+            session.getTransaction().rollback();
             e.printStackTrace();
             return false;
         }
@@ -33,9 +37,14 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public boolean update(Utilisateur user) {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             session.update(user);
+            session.getTransaction().commit();
             return true;
         } catch (Exception e) {
+            session.getTransaction().rollback();
             e.printStackTrace();
             return false;
         }
@@ -44,6 +53,9 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public List<Utilisateur> all() {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             return session.createQuery("select u from Utilisateur u", Utilisateur.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,6 +66,9 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public List<Utilisateur> allActivatedUser() {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             return session.createQuery("select u from Utilisateur u where u.status = true ", Utilisateur.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -64,6 +79,9 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public List<Utilisateur> allDesactivatedUser() {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             return session.createQuery("select u from Utilisateur u where u.status = false ", Utilisateur.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,6 +92,9 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public List<Utilisateur> allArchivedUser() {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             return session.createQuery("select u from Utilisateur u where u.archive = true ", Utilisateur.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -84,6 +105,9 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public List<Utilisateur> allUnarchivedUser() {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             return session.createQuery("select u from Utilisateur u where u.archive = false ", Utilisateur.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,6 +118,9 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public Utilisateur getUserById(Long id) {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             return session.createQuery("select u from Utilisateur u where u.id=:id", Utilisateur.class)
                     .setParameter("id", id)
                     .getSingleResult();
@@ -104,19 +131,20 @@ public class UtilisateurDao implements IUtilisateurDao {
     }
 
     @Override
-    public boolean getUserByUsernameAndPasswordAndProfile(String login, String password, Profil profil) {
+    public Utilisateur getUserByUsernameAndPasswordAndProfile(String login, String password) {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             Utilisateur utilisateur =  session.createQuery("select u from Utilisateur u where u.archive = false and u.status = true" +
-                    " and u.username=:login and u.password=:password and u.profil.id=:profil" +
-                    " and u.profil.status=true and u.profil.archiver=false ", Utilisateur.class)
+                    " and u.username=:login and u.password=:password", Utilisateur.class)
                     .setParameter("login", login)
                     .setParameter("password", password)
-                    .setParameter("profil", profil.getId())
                     .getSingleResult();
-            return utilisateur != null && utilisateur.getId() != null;
+            return utilisateur != null && utilisateur.getId() != null ? utilisateur : null;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 }

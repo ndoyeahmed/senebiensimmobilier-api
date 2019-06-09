@@ -1,6 +1,5 @@
 package main.java.com.senebien.dao;
 
-import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
 
 import javax.ejb.Local;
@@ -71,9 +70,8 @@ public interface IUtilisateurDao {
      * and if the user is allowed to connect to the application
      * @param login a required parameter (user login)
      * @param password a required parameter (user password)
-     * @param profil a required parameter (user profile)
      * @return return true if the user is registered and allowed and false if not
      */
-    boolean getUserByUsernameAndPasswordAndProfile(String login, String password, Profil profil);
+    Utilisateur getUserByUsernameAndPasswordAndProfile(String login, String password);
 
 }

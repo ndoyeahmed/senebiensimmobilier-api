@@ -3,7 +3,6 @@ package main.java.com.senebien.controller;
 
 import main.java.com.senebien.dao.IProfilDao;
 import main.java.com.senebien.dao.IUtilisateurDao;
-import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
 import main.java.com.senebien.utils.JsonResponse;
 import main.java.com.senebien.utils.UserLogin;
@@ -101,11 +100,10 @@ public class UtilisateurController {
     @Produces(MediaType.APPLICATION_JSON)
     public String login(String body) {
         UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
-        Profil profil = profilDao.getProfilByLibelle(userLogin.getProfil());
-        if (profil != null) {
-            if (utilisateurDao.getUserByUsernameAndPasswordAndProfile(userLogin.getLogin(), userLogin.getPassword(), profil)) {
-                return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("success", true));
-            } else return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_FORBIDDEN));
-        } else return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_FORBIDDEN));
+        Utilisateur utilisateur = utilisateurDao.getUserByUsernameAndPasswordAndProfile(userLogin.getLogin(), userLogin.getPassword());
+        if (utilisateur != null) {
+            return jsonResponse.getGsonInstance().toJson(utilisateur);
+        } else
+            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_FORBIDDEN));
     }
 }
