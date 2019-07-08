@@ -10,7 +10,7 @@ import java.util.List;
  * @since 01/06/2019
  * @version 1.0.0
  *
- * Interface containing all user prototype method with the database
+ * Interface containing all user prototype method that interact with the database
  */
 @Local
 public interface IUtilisateurDao {
@@ -64,6 +64,14 @@ public interface IUtilisateurDao {
      * @return return a user
      */
     Utilisateur getUserById(Long id);
+
+    /**
+     * Function prototype to get a user by his username
+     *
+     * @param username the required parameter to get a user
+     * @return return a user
+     */
+    Utilisateur getUserByUsername(String username);
 
     /**
      * Function prototype to verified if a user is registered on the database

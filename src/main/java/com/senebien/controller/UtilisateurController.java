@@ -11,6 +11,8 @@ import javax.ejb.EJB;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,7 +20,7 @@ import java.util.List;
  * @author Mouhamed NDOYE
  * @since 2019-06-01
  * @version 1.0.0
- * This is a user controller class that provide many services
+ * This is a user controller class that provide many services for users
  */
 @Path("/user")
 public class UtilisateurController {
@@ -36,6 +38,15 @@ public class UtilisateurController {
     @Produces(MediaType.APPLICATION_JSON)
     public String addUser(String body) {
         Utilisateur utilisateur = jsonResponse.getGsonInstance().fromJson(body, Utilisateur.class);
+        System.out.println(utilisateur.getProfil().getId());
+        utilisateur.setUsername("med");
+        utilisateur.setPassword("passer@1");
+        utilisateur.setStatus(true);
+        utilisateur.setArchive(false);
+        utilisateur.setArchive(false);
+        utilisateur.setStatus(true);
+        utilisateur.setDate(Timestamp.valueOf(LocalDateTime.now()));
+        utilisateur.setProfil(profilDao.getOneById(utilisateur.getProfil().getId()));
         if (utilisateurDao.create(utilisateur))
             return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("success", true));
         else
@@ -102,7 +113,7 @@ public class UtilisateurController {
         UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
         Utilisateur utilisateur = utilisateurDao.getUserByUsernameAndPasswordAndProfile(userLogin.getLogin(), userLogin.getPassword());
         if (utilisateur != null) {
-            return jsonResponse.getGsonInstance().toJson(utilisateur);
+            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("success", utilisateur));
         } else
             return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_FORBIDDEN));
     }

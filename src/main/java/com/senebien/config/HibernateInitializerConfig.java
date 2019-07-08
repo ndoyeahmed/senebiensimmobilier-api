@@ -27,15 +27,11 @@ public class HibernateInitializerConfig {
     }
 
     public static Session getSession() throws HibernateException {
-        if (ourSessionFactory.isOpen()) {
-            return ourSessionFactory.getCurrentSession();
-        } else {
-            return ourSessionFactory.openSession();
-        }
+        return ourSessionFactory.openSession();
     }
 
 
-    public void initDatabase() throws Exception {
+    void initDatabase() {
         final Session session = getSession();
         try {
             System.out.println("querying all the managed entities...");

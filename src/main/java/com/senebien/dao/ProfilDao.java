@@ -46,13 +46,12 @@ public class ProfilDao implements IProfilDao {
     @Override
     public List<Profil> all() {
         try {
-            if (!session.getTransaction().isActive()) {
+          /*  if (!session.getTransaction().isActive()) {
                 session.beginTransaction();
-            }
+            }*/
             List<Profil> profils;
-            session.beginTransaction();
             profils = session.createQuery("select p from Profil p", Profil.class).getResultList();
-            session.getTransaction().commit();
+//            session.getTransaction().commit();
             return profils;
         } catch (Exception e) {
             e.printStackTrace();
@@ -63,9 +62,9 @@ public class ProfilDao implements IProfilDao {
     @Override
     public List<Profil> allByStatusProfil(Boolean status) {
         try {
-            if (!session.getTransaction().isActive()) {
+           /* if (!session.getTransaction().isActive()) {
                 session.beginTransaction();
-            }
+            }*/
             return session.createQuery("select p from Profil p where p.status=:status and p.archiver=false ", Profil.class)
                     .setParameter("status", status)
                     .getResultList();
@@ -78,9 +77,9 @@ public class ProfilDao implements IProfilDao {
     @Override
     public List<Profil> allByArchivedProfil(Boolean archive) {
         try {
-            if (!session.getTransaction().isActive()) {
+            /*if (!session.getTransaction().isActive()) {
                 session.beginTransaction();
-            }
+            }*/
             return session.createQuery("select p from Profil p where p.archiver=:archive ", Profil.class)
                     .setParameter("archive", archive)
                     .getResultList();
@@ -93,10 +92,12 @@ public class ProfilDao implements IProfilDao {
     @Override
     public Profil getOneById(Long id) {
         try {
-            if (!session.getTransaction().isActive()) {
+            /*if (!session.getTransaction().isActive()) {
                 session.beginTransaction();
-            }
-            return session.createQuery("select p from Profil p where p.id=:id", Profil.class).getSingleResult();
+            }*/
+            return session.createQuery("select p from Profil p where p.id=:id", Profil.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -107,14 +108,14 @@ public class ProfilDao implements IProfilDao {
     public Profil getProfilByLibelle(String libelle) {
         try {
             Profil profil;
-            if (!session.getTransaction().isActive()) {
+           /* if (!session.getTransaction().isActive()) {
                 session.beginTransaction();
-            }
+            }*/
             profil = session.createQuery("select p from Profil p where p.libelle like :libelle" +
                     " and p.archiver=false and p.status=true ", Profil.class)
                     .setParameter("libelle", libelle)
                     .getSingleResult();
-            session.getTransaction().commit();
+//            session.getTransaction().commit();
             return profil;
         } catch (Exception e) {
             e.printStackTrace();

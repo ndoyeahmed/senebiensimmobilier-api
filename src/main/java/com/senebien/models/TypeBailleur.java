@@ -12,7 +12,8 @@ import java.io.Serializable;
  * @since 2019-06-30
  */
 @Entity
-public class TypeBien implements Serializable {
+public class TypeBailleur implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

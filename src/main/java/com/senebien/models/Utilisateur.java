@@ -10,13 +10,10 @@ import java.util.Date;
  * @version 1.0.0
  */
 @Entity
-public class Utilisateur implements Serializable {
+public class Utilisateur extends Personne implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
     private String username;
     private String password;
     @Temporal(TemporalType.TIMESTAMP)
@@ -58,30 +55,6 @@ public class Utilisateur implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public Date getDate() {
