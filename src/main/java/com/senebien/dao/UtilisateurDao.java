@@ -5,7 +5,10 @@ import main.java.com.senebien.models.Utilisateur;
 import org.hibernate.Session;
 
 import javax.ejb.Stateless;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Mouhamed NDOYE
@@ -16,6 +19,9 @@ import java.util.List;
  */
 @Stateless
 public class UtilisateurDao implements IUtilisateurDao {
+
+    private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     private Session session = HibernateInitializerConfig.getSession();
 
     @Override
@@ -24,7 +30,7 @@ public class UtilisateurDao implements IUtilisateurDao {
             session.save(user);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return false;
         }
     }
@@ -35,7 +41,7 @@ public class UtilisateurDao implements IUtilisateurDao {
             session.update(user);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return false;
         }
     }
@@ -43,79 +49,61 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public List<Utilisateur> all() {
         try {
-            /*if (!session.getTransaction().isActive()) {
-                session.beginTransaction();
-            }*/
             return session.createQuery("select u from Utilisateur u", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
     @Override
     public List<Utilisateur> allActivatedUser() {
         try {
-           /* if (!session.getTransaction().isActive()) {
-                session.beginTransaction();
-            }*/
             return session.createQuery("select u from Utilisateur u where u.status = true ", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
     @Override
     public List<Utilisateur> allDesactivatedUser() {
         try {
-            /*if (!session.getTransaction().isActive()) {
-                session.beginTransaction();
-            }*/
             return session.createQuery("select u from Utilisateur u where u.status = false ", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
     @Override
     public List<Utilisateur> allArchivedUser() {
         try {
-            /*if (!session.getTransaction().isActive()) {
-                session.beginTransaction();
-            }*/
             return session.createQuery("select u from Utilisateur u where u.archive = true ", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
     @Override
     public List<Utilisateur> allUnarchivedUser() {
         try {
-            /*if (!session.getTransaction().isActive()) {
-                session.beginTransaction();
-            }*/
             return session.createQuery("select u from Utilisateur u where u.archive = false ", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
     @Override
     public Utilisateur getUserById(Long id) {
         try {
-            /*if (!session.getTransaction().isActive()) {
-                session.beginTransaction();
-            }*/
             return session.createQuery("select u from Utilisateur u where u.id=:id", Utilisateur.class)
                     .setParameter("id", id)
                     .getSingleResult();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return null;
         }
     }
@@ -123,15 +111,12 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public Utilisateur getUserByUsername(String username) {
         try {
-            /*if (!session.getTransaction().isActive()) {
-                session.beginTransaction();
-            }*/
             Utilisateur utilisateur = session.createQuery("select u from Utilisateur u where u.username=:username", Utilisateur.class)
                     .setParameter("username", username)
                     .getSingleResult();
             return utilisateur != null && utilisateur.getId() != null ? utilisateur : null;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return null;
         }
     }
@@ -139,9 +124,6 @@ public class UtilisateurDao implements IUtilisateurDao {
     @Override
     public Utilisateur getUserByUsernameAndPasswordAndProfile(String login, String password) {
         try {
-           /* if (!session.getTransaction().isActive()) {
-                session.beginTransaction();
-            }*/
             Utilisateur utilisateur =  session.createQuery("select u from Utilisateur u where u.archive = false and u.status = true" +
                     " and u.username=:login and u.password=:password", Utilisateur.class)
                     .setParameter("login", login)
@@ -149,7 +131,7 @@ public class UtilisateurDao implements IUtilisateurDao {
                     .getSingleResult();
             return utilisateur != null && utilisateur.getId() != null ? utilisateur : null;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return null;
         }
     }

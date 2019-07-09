@@ -24,6 +24,10 @@ import java.util.List;
  */
 @Path("/user")
 public class UtilisateurController {
+
+    private static final String ERROR_CODE = "error";
+    private static final String SUCCES_CODE = "success";
+
     @EJB
     IUtilisateurDao utilisateurDao;
 
@@ -38,7 +42,6 @@ public class UtilisateurController {
     @Produces(MediaType.APPLICATION_JSON)
     public String addUser(String body) {
         Utilisateur utilisateur = jsonResponse.getGsonInstance().fromJson(body, Utilisateur.class);
-        System.out.println(utilisateur.getProfil().getId());
         utilisateur.setUsername("med");
         utilisateur.setPassword("passer@1");
         utilisateur.setStatus(true);
@@ -48,9 +51,9 @@ public class UtilisateurController {
         utilisateur.setDate(Timestamp.valueOf(LocalDateTime.now()));
         utilisateur.setProfil(profilDao.getOneById(utilisateur.getProfil().getId()));
         if (utilisateurDao.create(utilisateur))
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("success", true));
+            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(SUCCES_CODE, true));
         else
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_BAD_REQUEST));
+            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(ERROR_CODE, HttpServletResponse.SC_BAD_REQUEST));
     }
 
     @GET
@@ -102,7 +105,7 @@ public class UtilisateurController {
         if (utilisateur != null) {
             return jsonResponse.getGsonInstance().toJson(utilisateur);
         } else
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_EXPECTATION_FAILED));
+            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(ERROR_CODE, HttpServletResponse.SC_EXPECTATION_FAILED));
     }
 
     @POST
@@ -113,8 +116,8 @@ public class UtilisateurController {
         UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
         Utilisateur utilisateur = utilisateurDao.getUserByUsernameAndPasswordAndProfile(userLogin.getLogin(), userLogin.getPassword());
         if (utilisateur != null) {
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("success", utilisateur));
+            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(SUCCES_CODE, utilisateur));
         } else
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap("error", HttpServletResponse.SC_FORBIDDEN));
+            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(ERROR_CODE, HttpServletResponse.SC_FORBIDDEN));
     }
 }

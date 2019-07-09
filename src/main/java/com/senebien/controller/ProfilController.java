@@ -11,6 +11,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Mouhamed NDOYE
@@ -20,6 +22,9 @@ import java.util.ArrayList;
  */
 @Path("/profil")
 public class ProfilController {
+
+    private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     @EJB
     IProfilDao iProfilDao;
 
@@ -35,7 +40,7 @@ public class ProfilController {
         try {
             return jsonResponse.getGsonInstance().toJson(iProfilDao.all());
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
         }
     }
@@ -47,7 +52,7 @@ public class ProfilController {
         try {
             return jsonResponse.getGsonInstance().toJson(iProfilDao.allByStatusProfil(true));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
         }
     }
@@ -59,7 +64,7 @@ public class ProfilController {
         try {
             return jsonResponse.getGsonInstance().toJson(iProfilDao.allByStatusProfil(false));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
         }
     }
@@ -71,7 +76,7 @@ public class ProfilController {
         try {
             return jsonResponse.getGsonInstance().toJson(iProfilDao.allByArchivedProfil(true));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
         }
     }
@@ -83,7 +88,7 @@ public class ProfilController {
         try {
             return jsonResponse.getGsonInstance().toJson(iProfilDao.allByArchivedProfil(false));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
         }
     }

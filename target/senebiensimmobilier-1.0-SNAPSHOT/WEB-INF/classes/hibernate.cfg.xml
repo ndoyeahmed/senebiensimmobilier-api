@@ -20,18 +20,18 @@
         <!-- Mapping Models java to DB entities -->
         <mapping class="main.java.com.senebien.models.Profil" />
         <mapping class="main.java.com.senebien.models.Utilisateur" />
-        <mapping class="main.java.com.senebien.models.TypePaiement" />
-        <mapping class="main.java.com.senebien.models.Arriere" />
-        <mapping class="main.java.com.senebien.models.Avance" />
-        <mapping class="main.java.com.senebien.models.Mois" />
-        <mapping class="main.java.com.senebien.models.Paiement" />
-        <mapping class="main.java.com.senebien.models.Bien" />
-        <mapping class="main.java.com.senebien.models.TypeBailleur" />
-        <mapping class="main.java.com.senebien.models.Bailleur" />
-        <mapping class="main.java.com.senebien.models.TypeBien" />
-        <mapping class="main.java.com.senebien.models.Client" />
-        <mapping class="main.java.com.senebien.models.Location" />
-        <mapping class="main.java.com.senebien.models.Loyer" />
+        <mapping class="main.java.com.senebien.models.TypePaiement"/>
+        <mapping class="main.java.com.senebien.models.Arriere"/>
+        <mapping class="main.java.com.senebien.models.Avance"/>
+        <mapping class="main.java.com.senebien.models.Mois"/>
+        <mapping class="main.java.com.senebien.models.Paiement"/>
+        <mapping class="main.java.com.senebien.models.Bien"/>
+        <mapping class="main.java.com.senebien.models.TypeBailleur"/>
+        <mapping class="main.java.com.senebien.models.Bailleur"/>
+        <mapping class="main.java.com.senebien.models.TypeBien"/>
+        <mapping class="main.java.com.senebien.models.Client"/>
+        <mapping class="main.java.com.senebien.models.Location"/>
+        <mapping class="main.java.com.senebien.models.Loyer"/>
         <!-- end Mapping Models java to DB entities -->
     </session-factory>
 </hibernate-configuration>
