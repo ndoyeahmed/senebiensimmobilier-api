@@ -2,7 +2,6 @@ package main.java.com.senebien.dao;
 
 import main.java.com.senebien.models.Utilisateur;
 
-import javax.ejb.Local;
 import java.util.List;
 
 /**
@@ -12,7 +11,6 @@ import java.util.List;
  *
  * Interface containing all user prototype method that interact with the database
  */
-@Local
 public interface IUtilisateurDao {
     /**
      * Function prototype that create a user in the database

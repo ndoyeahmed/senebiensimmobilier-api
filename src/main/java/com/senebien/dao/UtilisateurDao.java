@@ -4,7 +4,6 @@ import main.java.com.senebien.config.HibernateInitializerConfig;
 import main.java.com.senebien.models.Utilisateur;
 import org.hibernate.Session;
 
-import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -17,7 +16,6 @@ import java.util.logging.Logger;
  *
  * Class that implement the IUtilisateurDao interface
  */
-@Stateless
 public class UtilisateurDao implements IUtilisateurDao {
 
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

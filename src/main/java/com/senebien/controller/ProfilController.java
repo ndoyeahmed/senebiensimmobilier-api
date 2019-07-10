@@ -24,7 +24,7 @@ public class ProfilController {
 
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    private ProfilDao iProfilDao = new ProfilDao();
+    private final ProfilDao iProfilDao = new ProfilDao();
 
     private JsonResponse jsonResponse = new JsonResponse();
 

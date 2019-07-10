@@ -1,13 +1,12 @@
 package main.java.com.senebien.controller;
 
 
-import main.java.com.senebien.dao.IProfilDao;
-import main.java.com.senebien.dao.IUtilisateurDao;
+import main.java.com.senebien.dao.ProfilDao;
+import main.java.com.senebien.dao.UtilisateurDao;
 import main.java.com.senebien.models.Utilisateur;
 import main.java.com.senebien.utils.JsonResponse;
 import main.java.com.senebien.utils.UserLogin;
 
-import javax.ejb.EJB;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -29,11 +28,9 @@ public class UtilisateurController {
     private static final String ERROR_CODE = "error";
     private static final String SUCCES_CODE = "success";
 
-    @EJB
-    IUtilisateurDao utilisateurDao;
+    private final UtilisateurDao utilisateurDao = new UtilisateurDao();
 
-    @EJB
-    IProfilDao profilDao;
+    private final ProfilDao profilDao = new ProfilDao();
 
     private JsonResponse jsonResponse = new JsonResponse();
 
