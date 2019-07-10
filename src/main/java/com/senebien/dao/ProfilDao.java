@@ -4,13 +4,12 @@ import main.java.com.senebien.config.HibernateInitializerConfig;
 import main.java.com.senebien.models.Profil;
 import org.hibernate.Session;
 
-import javax.ejb.Stateless;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@Stateless
+//@Stateless
 public class ProfilDao implements IProfilDao {
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private Session session = HibernateInitializerConfig.getSession();

@@ -5,7 +5,7 @@ import main.java.com.senebien.dao.IProfilDao;
 import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.utils.JsonResponse;
 
-import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -25,7 +25,7 @@ public class ProfilController {
 
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    @EJB
+    @Inject
     IProfilDao iProfilDao;
 
     private JsonResponse jsonResponse = new JsonResponse();

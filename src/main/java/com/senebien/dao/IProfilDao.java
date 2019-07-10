@@ -2,7 +2,6 @@ package main.java.com.senebien.dao;
 
 import main.java.com.senebien.models.Profil;
 
-import javax.ejb.Local;
 import java.util.List;
 
 /**
@@ -10,7 +9,7 @@ import java.util.List;
  * @since 2019-06-01
  * @version 1.0.0
  */
-@Local
+//@Local
 public interface IProfilDao {
     boolean create(Profil profil);
 
