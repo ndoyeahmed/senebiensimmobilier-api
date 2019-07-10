@@ -1,1 +1,1 @@
-web: java -jar target/senebiensimmobilier-1.0-SNAPSHOT.war
+web: java -war target/senebiensimmobilier-1.0-SNAPSHOT.war
