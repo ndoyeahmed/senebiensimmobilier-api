@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class Profil implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String libelle;
     private Boolean archiver;
