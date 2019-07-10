@@ -21,6 +21,7 @@
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.2" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.9.2" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-xc:1.9.2" />
+          <element id="library" level="project" name="Maven: com.sun.jersey:jersey-core:1.19.4" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.5" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:5.4.2.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" />
@@ -46,10 +47,6 @@
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
           <element id="library" level="project" name="Maven: asm:asm:3.3.1" />
           <element id="library" level="project" name="Maven: org.json:json:20160810" />
-          <element id="library" level="project" name="Maven: com.sun.jersey:jersey-bundle:1.19.2" />
-          <element id="library" level="project" name="Maven: javax.ws.rs:jsr311-api:1.1.1" />
-          <element id="library" level="project" name="Maven: com.sun.jersey:jersey-server:1.19.2" />
-          <element id="library" level="project" name="Maven: com.sun.jersey:jersey-core:1.19.2" />
           <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-server:2.17" />
           <element id="library" level="project" name="Maven: org.glassfish.jersey.core:jersey-common:2.17" />
           <element id="library" level="project" name="Maven: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.17" />
@@ -64,6 +61,7 @@
           <element id="library" level="project" name="Maven: org.glassfish.hk2.external:javax.inject:2.4.0-b10" />
           <element id="library" level="project" name="Maven: org.glassfish.hk2:hk2-locator:2.4.0-b10" />
           <element id="library" level="project" name="Maven: org.glassfish.jersey.containers:jersey-container-servlet-core:2.17" />
+          <element id="library" level="project" name="Maven: javax.ws.rs:jsr311-api:1.1.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
