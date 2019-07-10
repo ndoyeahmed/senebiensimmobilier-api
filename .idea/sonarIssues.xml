@@ -8,6 +8,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/proxy.conf.json">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/App.js">
           <value>
             <set />
@@ -79,6 +84,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/services/CommandeService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/services/FicheDistributionService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/web/rest/CommandeController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/web/rest/FicheDistributionController.java">
           <value>
             <set />
           </value>
