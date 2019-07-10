@@ -10,7 +10,6 @@ import main.java.com.senebien.utils.UserLogin;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -57,9 +56,9 @@ public class UtilisateurController {
     @GET
     @Path("/all-user")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllUser() {
+    public String getAllUser() {
         List<Utilisateur> utilisateurs = utilisateurDao.all();
-        return Response.ok(utilisateurs).build();
+        return jsonResponse.getGsonInstance().toJson(utilisateurs);
     }
 
     @GET
