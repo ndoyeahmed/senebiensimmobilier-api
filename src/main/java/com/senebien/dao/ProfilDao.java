@@ -55,6 +55,7 @@ public class ProfilDao implements IProfilDao {
             return profils;
         } catch (Exception e) {
             LOGGER.log(Level.INFO, e.getMessage());
+            e.printStackTrace();
             return new ArrayList<>();
         }
     }
