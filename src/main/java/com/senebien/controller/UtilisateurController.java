@@ -11,6 +11,7 @@ import javax.ejb.EJB;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -59,9 +60,9 @@ public class UtilisateurController {
     @GET
     @Path("/all-user")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAllUser() {
+    public Response getAllUser() {
         List<Utilisateur> utilisateurs = utilisateurDao.all();
-        return jsonResponse.getGsonInstance().toJson(utilisateurs);
+        return Response.ok(utilisateurs).build();
     }
 
     @GET
