@@ -1,6 +1,5 @@
 package main.java.com.senebien.dao;
 
-import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
 
 import javax.ejb.Local;
@@ -11,7 +10,7 @@ import java.util.List;
  * @since 01/06/2019
  * @version 1.0.0
  *
- * Interface containing all user prototype method with the database
+ * Interface containing all user prototype method that interact with the database
  */
 @Local
 public interface IUtilisateurDao {
@@ -67,13 +66,20 @@ public interface IUtilisateurDao {
     Utilisateur getUserById(Long id);
 
     /**
+     * Function prototype to get a user by his username
+     *
+     * @param username the required parameter to get a user
+     * @return return a user
+     */
+    Utilisateur getUserByUsername(String username);
+
+    /**
      * Function prototype to verified if a user is registered on the database
      * and if the user is allowed to connect to the application
      * @param login a required parameter (user login)
      * @param password a required parameter (user password)
-     * @param profil a required parameter (user profile)
      * @return return true if the user is registered and allowed and false if not
      */
-    boolean getUserByUsernameAndPasswordAndProfile(String login, String password, Profil profil);
+    Utilisateur getUserByUsernameAndPasswordAndProfile(String login, String password);
 
 }

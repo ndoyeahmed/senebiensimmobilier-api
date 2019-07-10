@@ -5,19 +5,28 @@ import main.java.com.senebien.models.Profil;
 import org.hibernate.Session;
 
 import javax.ejb.Stateless;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Stateless
 public class ProfilDao implements IProfilDao {
+    private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     private Session session = HibernateInitializerConfig.getSession();
 
     @Override
     public boolean create(Profil profil) {
         try {
-            session.persist(profil);
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
+            session.save(profil);
+            session.getTransaction().commit();
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            session.getTransaction().rollback();
+            LOGGER.log(Level.INFO, e.getMessage());
             return false;
         }
     }
@@ -25,10 +34,15 @@ public class ProfilDao implements IProfilDao {
     @Override
     public boolean update(Profil profil) {
         try {
+            if (!session.getTransaction().isActive()) {
+                session.beginTransaction();
+            }
             session.update(profil);
+            session.getTransaction().commit();
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            session.getTransaction().rollback();
+            LOGGER.log(Level.INFO, e.getMessage());
             return false;
         }
     }
@@ -36,10 +50,12 @@ public class ProfilDao implements IProfilDao {
     @Override
     public List<Profil> all() {
         try {
-            return session.createQuery("select p from Profil p", Profil.class).getResultList();
+            List<Profil> profils;
+            profils = session.createQuery("select p from Profil p", Profil.class).getResultList();
+            return profils;
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
@@ -50,8 +66,8 @@ public class ProfilDao implements IProfilDao {
                     .setParameter("status", status)
                     .getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
@@ -62,17 +78,19 @@ public class ProfilDao implements IProfilDao {
                     .setParameter("archive", archive)
                     .getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
     @Override
     public Profil getOneById(Long id) {
         try {
-            return session.createQuery("select p from Profil p where p.id=:id", Profil.class).getSingleResult();
+            return session.createQuery("select p from Profil p where p.id=:id", Profil.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return null;
         }
     }
@@ -80,12 +98,14 @@ public class ProfilDao implements IProfilDao {
     @Override
     public Profil getProfilByLibelle(String libelle) {
         try {
-            return session.createQuery("select p from Profil p where p.libelle like :libelle" +
+            Profil profil;
+            profil = session.createQuery("select p from Profil p where p.libelle like :libelle" +
                     " and p.archiver=false and p.status=true ", Profil.class)
                     .setParameter("libelle", libelle)
                     .getSingleResult();
+            return profil;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return null;
         }
     }

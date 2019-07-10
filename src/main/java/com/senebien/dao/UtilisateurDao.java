@@ -1,12 +1,14 @@
 package main.java.com.senebien.dao;
 
 import main.java.com.senebien.config.HibernateInitializerConfig;
-import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.models.Utilisateur;
 import org.hibernate.Session;
 
 import javax.ejb.Stateless;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Mouhamed NDOYE
@@ -17,6 +19,9 @@ import java.util.List;
  */
 @Stateless
 public class UtilisateurDao implements IUtilisateurDao {
+
+    private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
     private Session session = HibernateInitializerConfig.getSession();
 
     @Override
@@ -25,7 +30,7 @@ public class UtilisateurDao implements IUtilisateurDao {
             session.save(user);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return false;
         }
     }
@@ -36,7 +41,7 @@ public class UtilisateurDao implements IUtilisateurDao {
             session.update(user);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return false;
         }
     }
@@ -46,8 +51,8 @@ public class UtilisateurDao implements IUtilisateurDao {
         try {
             return session.createQuery("select u from Utilisateur u", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
@@ -56,8 +61,8 @@ public class UtilisateurDao implements IUtilisateurDao {
         try {
             return session.createQuery("select u from Utilisateur u where u.status = true ", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
@@ -66,8 +71,8 @@ public class UtilisateurDao implements IUtilisateurDao {
         try {
             return session.createQuery("select u from Utilisateur u where u.status = false ", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
@@ -76,8 +81,8 @@ public class UtilisateurDao implements IUtilisateurDao {
         try {
             return session.createQuery("select u from Utilisateur u where u.archive = true ", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
@@ -86,8 +91,8 @@ public class UtilisateurDao implements IUtilisateurDao {
         try {
             return session.createQuery("select u from Utilisateur u where u.archive = false ", Utilisateur.class).getResultList();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
@@ -98,25 +103,36 @@ public class UtilisateurDao implements IUtilisateurDao {
                     .setParameter("id", id)
                     .getSingleResult();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO, e.getMessage());
             return null;
         }
     }
 
     @Override
-    public boolean getUserByUsernameAndPasswordAndProfile(String login, String password, Profil profil) {
+    public Utilisateur getUserByUsername(String username) {
+        try {
+            Utilisateur utilisateur = session.createQuery("select u from Utilisateur u where u.username=:username", Utilisateur.class)
+                    .setParameter("username", username)
+                    .getSingleResult();
+            return utilisateur != null && utilisateur.getId() != null ? utilisateur : null;
+        } catch (Exception e) {
+            LOGGER.log(Level.INFO, e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public Utilisateur getUserByUsernameAndPasswordAndProfile(String login, String password) {
         try {
             Utilisateur utilisateur =  session.createQuery("select u from Utilisateur u where u.archive = false and u.status = true" +
-                    " and u.username=:login and u.password=:password and u.profil.id=:profil" +
-                    " and u.profil.status=true and u.profil.archiver=false ", Utilisateur.class)
+                    " and u.username=:login and u.password=:password", Utilisateur.class)
                     .setParameter("login", login)
                     .setParameter("password", password)
-                    .setParameter("profil", profil.getId())
                     .getSingleResult();
-            return utilisateur != null && utilisateur.getId() != null;
+            return utilisateur != null && utilisateur.getId() != null ? utilisateur : null;
         } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+            LOGGER.log(Level.INFO, e.getMessage());
+            return null;
         }
     }
 }

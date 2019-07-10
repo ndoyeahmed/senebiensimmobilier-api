@@ -9,12 +9,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class JsonResponse {
-    private Gson _gson = null;
+    private Gson gson = null;
 
     public Gson getGsonInstance() {
-        if (this._gson == null) {
-            return this._gson = new Gson();
-        } else return this._gson;
+        if (this.gson == null) {
+            this.gson = new Gson();
+            return this.gson;
+        } else return this.gson;
     }
     //a utility method to send object
     //as JSON response
@@ -47,15 +48,4 @@ public class JsonResponse {
         }
         return null;
     }
-
-    /*public String onGet(HttpServletRequest request) {
-
-    }*/
-
-  /*  GsonBuilder gsonBuilder = new GsonBuilder();
-        new GraphAdapterBuilder()
-                .addType(Utilisateur.class)
-                .registerOn(gsonBuilder);
-    Gson gson = gsonBuilder.create();
-        return gson.toJson(utilisateurs);*/
 }
