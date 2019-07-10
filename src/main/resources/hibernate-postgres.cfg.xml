@@ -8,11 +8,12 @@
         <property name="connection.url">jdbc:postgresql://raja.db.elephantsql.com:5432/qjnvkvgi</property>
         <property name="connection.username">qjnvkvgi</property>
         <property name="connection.password">FtRerLNXchWjPmK8dBEVHboVXGi71qJC</property>
+        <property name="connection.autocommit">true</property>
         <property name="hibernate.transaction.auto_close_session">true</property>
         <property name="connection.pool_size">1</property>
         <property name="current_session_context_class">thread</property>
         <property name="show_sql">true</property>
-        <property name="dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
 
