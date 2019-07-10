@@ -1,11 +1,10 @@
 package main.java.com.senebien.controller;
 
 
-import main.java.com.senebien.dao.IProfilDao;
+import main.java.com.senebien.dao.ProfilDao;
 import main.java.com.senebien.models.Profil;
 import main.java.com.senebien.utils.JsonResponse;
 
-import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -25,8 +24,7 @@ public class ProfilController {
 
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    @Inject
-    IProfilDao iProfilDao;
+    private ProfilDao iProfilDao = new ProfilDao();
 
     private JsonResponse jsonResponse = new JsonResponse();
 
