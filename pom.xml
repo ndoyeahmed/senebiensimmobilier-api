@@ -10,12 +10,6 @@
     <packaging>war</packaging>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-json -->
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-json</artifactId>
-            <version>1.19.4</version>
-        </dependency>
 
         <!--  Gson: Java to Json conversion -->
         <dependency>
@@ -78,27 +72,31 @@
             <artifactId>json</artifactId>
             <version>20160810</version>
         </dependency>
-        <!--
-                &lt;!&ndash; https://mvnrepository.com/artifact/com.sun.jersey/jersey-bundle &ndash;&gt;
-                <dependency>
-                    <groupId>com.sun.jersey</groupId>
-                    <artifactId>jersey-bundle</artifactId>
-                    <version>1.19.2</version>
-                </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-bundle -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-bundle</artifactId>
+            <version>1.19.2</version>
+        </dependency>
 
-                &lt;!&ndash; https://mvnrepository.com/artifact/com.sun.jersey/jersey-server &ndash;&gt;
-                <dependency>
-                    <groupId>com.sun.jersey</groupId>
-                    <artifactId>jersey-server</artifactId>
-                    <version>1.19.2</version>
-                </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-server -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>1.19.2</version>
+        </dependency>
 
-                &lt;!&ndash; https://mvnrepository.com/artifact/com.sun.jersey/jersey-core &ndash;&gt;
-                <dependency>
-                    <groupId>com.sun.jersey</groupId>
-                    <artifactId>jersey-core</artifactId>
-                    <version>1.19.2</version>
-                </dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-core -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-core</artifactId>
+            <version>1.19.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>1.19.2</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.ejb/ejb-api -->
         <dependency>
