@@ -20,7 +20,7 @@ public class HibernateInitializerConfig {
     static {
         try {
             Configuration configuration = new Configuration();
-            configuration.configure("/hibernate-postgres.cfg.xml");
+            configuration.configure("/hibernate.cfg.xml");
 
             ourSessionFactory = configuration.buildSessionFactory();
         } catch (Exception ex) {
