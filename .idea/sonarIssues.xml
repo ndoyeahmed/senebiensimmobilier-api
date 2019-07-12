@@ -3,7 +3,7 @@
   <component name="issues">
     <option name="index">
       <map>
-        <entry key="/Dummy.txt">
+        <entry key="/a.dummy">
           <value>
             <set />
           </value>
@@ -13,27 +13,47 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/App.js">
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-commande-liste/fiche-commande-liste.component.html">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Login/LoginPage.js">
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-commande-liste/fiche-commande-liste.component.ts">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Utilisateur/UtilisateurAddPage.js">
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-commande/fiche-commande.component.html">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/containers/DefaultLayout/DefaultFooter.js">
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-commande/fiche-commande.component.ts">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/containers/DefaultLayout/DefaultHeader.js">
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-distribution/fiche-distribution.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-distribution/fiche-distribution.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/user-list/user-list.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/user-list/user-list.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/environments/environment.prod.ts">
           <value>
             <set />
           </value>
@@ -43,32 +63,17 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/services/utilisateur.service.js">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/Procfile">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/README.md">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/pom.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/senebien/config/HibernateInitializerConfig.java">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/controller/ProfilController.java">
+        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/controller/BaseController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/controller/CORSFilter.java">
           <value>
             <set />
           </value>
@@ -78,77 +83,72 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/dao/IProfilDao.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/dao/IUtilisateurDao.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/dao/ProfilDao.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/dao/UtilisateurDao.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/models/Profil.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/models/Utilisateur.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/utils/JsonResponse.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/main/resources/hibernate-postgres.cfg.xml">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/controller/BienControlleur.java">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/web/WEB-INF/web.xml">
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/controller/LocationController.java">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/services/CommandeService.java">
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/Bailleur.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/Bien.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/Client.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/Location.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/Photo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/services/ILocation.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/services/ILocationServices.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/services/implementations/LocationDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/resources/hibernate.cfg.xml">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/services/FicheDistributionService.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/web/rest/CommandeController.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/web/rest/FicheDistributionController.java">
           <value>
             <set />
           </value>

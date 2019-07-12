@@ -10,6 +10,7 @@ import main.java.com.senebien.utils.UserLogin;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Collections;
@@ -22,7 +23,7 @@ import java.util.List;
  * This is a user controller class that provide many services for users
  */
 @Path("/user")
-public class UtilisateurController {
+public class UtilisateurController extends BaseController {
 
     private static final String ERROR_CODE = "error";
     private static final String SUCCES_CODE = "success";
@@ -37,7 +38,7 @@ public class UtilisateurController {
     @Path("/add-user")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String addUser(String body) {
+    public Response addUser(String body) {
         Utilisateur utilisateur = jsonResponse.getGsonInstance().fromJson(body, Utilisateur.class);
         utilisateur.setUsername("med");
         utilisateur.setPassword("passer@1");
@@ -48,17 +49,20 @@ public class UtilisateurController {
         utilisateur.setDate(Timestamp.valueOf(LocalDateTime.now()));
         utilisateur.setProfil(profilDao.getOneById(utilisateur.getProfil().getId()));
         if (utilisateurDao.create(utilisateur))
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(SUCCES_CODE, true));
+            return Response.status(200).entity(Collections.singletonMap(SUCCES_CODE, true)).build();
         else
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(ERROR_CODE, HttpServletResponse.SC_BAD_REQUEST));
+            return Response.status(400).entity(Collections.singletonMap(ERROR_CODE, false)).build();
     }
 
     @GET
     @Path("/all-user")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAllUser() {
+    public Response getAllUser() {
         List<Utilisateur> utilisateurs = utilisateurDao.all();
-        return jsonResponse.getGsonInstance().toJson(utilisateurs);
+        return Response.status(200).entity(utilisateurs)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS")
+                .build();
     }
 
     @GET
@@ -109,12 +113,13 @@ public class UtilisateurController {
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String login(String body) {
-        UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
+    public Response login(UserLogin userLogin) {
+        System.out.println("username and password " + userLogin.getLogin() + " " + userLogin.getPassword());
+//        UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
         Utilisateur utilisateur = utilisateurDao.getUserByUsernameAndPasswordAndProfile(userLogin.getLogin(), userLogin.getPassword());
         if (utilisateur != null) {
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(SUCCES_CODE, utilisateur));
+            return sendSuccess("credential ok", utilisateur);
         } else
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(ERROR_CODE, HttpServletResponse.SC_FORBIDDEN));
+            return sendError(401, "bad credentials");
     }
 }
