@@ -118,8 +118,8 @@ public class UtilisateurController extends BaseController {
 //        UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
         Utilisateur utilisateur = utilisateurDao.getUserByUsernameAndPasswordAndProfile(userLogin.getLogin(), userLogin.getPassword());
         if (utilisateur != null) {
-            return sendSuccess("credential ok", utilisateur);
+            return Response.status(200).entity(Collections.singletonMap(SUCCES_CODE, utilisateur)).build();
         } else
-            return sendError(401, "bad credentials");
+            return Response.status(401).entity(Collections.singletonMap(SUCCES_CODE, false)).build();
     }
 }
