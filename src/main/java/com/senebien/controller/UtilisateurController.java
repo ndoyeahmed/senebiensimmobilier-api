@@ -112,8 +112,8 @@ public class UtilisateurController extends BaseController {
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response login(UserLogin userLogin) {
-//        UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
+    public Response login(String body) {
+        UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
         Utilisateur utilisateur = service.login(userLogin);
         if (utilisateur != null) {
             return Response.status(HttpServletResponse.SC_OK).entity(Collections.singletonMap(SUCCES_CODE, utilisateur)).build();
