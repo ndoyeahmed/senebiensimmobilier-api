@@ -18,6 +18,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/boutique-list/boutique-list.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/boutique-list/boutique-list.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-commande-liste/fiche-commande-liste.component.html">
           <value>
             <set />
@@ -34,6 +44,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-commande/fiche-commande.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-distribution-liste/fiche-distribution-liste.component.ts">
           <value>
             <set />
           </value>
@@ -63,7 +78,52 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/package.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Login/LoginPage.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Utilisateur/UtilisateurAddPage.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Utilisateur/UtilisateurListPage.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Utilisateur/UtilisateurPage.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/containers/DefaultLayout/DefaultHeader.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/services/api.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/services/auth.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/services/utilisateurService.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/pom.xml">
           <value>
             <set />
           </value>
@@ -83,12 +143,132 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/controller/ProfilController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/senebien/controller/UtilisateurController.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/dao/IUtilisateurDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/dao/UtilisateurDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/services/UtilisateurService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/Consultation.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/ConsultationDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/Patient.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/PatientDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/Profile.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/ProfileDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/RendezVous.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/RendezVousDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/Utilisateur.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/DTO/UtilisateurDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/models/Consultation.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/models/Profile.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/rest/PatientController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/rest/UtilisateurController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/services/ConsultationService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/services/PatientService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/java/com/bulletin/sante/bulletinsante/services/UtilisateurService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../android/Project/bulletin_sante/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/pom.xml">
           <value>
             <set />
           </value>
@@ -99,6 +279,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/controller/LocationController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/controller/PaiementController.java">
           <value>
             <set />
           </value>
@@ -128,7 +313,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/Typebien.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/services/IBienServices.java">
           <value>
             <set />
           </value>
@@ -139,6 +334,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/services/ILocationServices.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/services/implementations/BienDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/services/implementations/ClientDAO.java">
           <value>
             <set />
           </value>

@@ -1,14 +1,16 @@
 package main.java.com.senebien.controller;
 
 
-import main.java.com.senebien.dao.ProfilDao;
 import main.java.com.senebien.models.Profil;
+import main.java.com.senebien.services.UtilisateurService;
 import main.java.com.senebien.utils.JsonResponse;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,14 +21,14 @@ import java.util.logging.Logger;
  * @version 1.0.0
  * This is a user controller class that provide many services for profile
  */
-@Path("/profil")
+@Path("/profils")
 public class ProfilController {
 
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
-    private final ProfilDao iProfilDao = new ProfilDao();
-
     private JsonResponse jsonResponse = new JsonResponse();
+
+    private final UtilisateurService service = new UtilisateurService();
 
     /**
      * @return return all profile like json object in a string
@@ -34,60 +36,59 @@ public class ProfilController {
     @GET
     @Path("/all")
     @Produces(MediaType.APPLICATION_JSON)
-    public String all() {
+    public Response all() {
         try {
-            return jsonResponse.getGsonInstance().toJson(iProfilDao.all());
+            return Response.status(HttpServletResponse.SC_OK).entity(service.allProfil()).build();
         } catch (Exception e) {
             LOGGER.log(Level.INFO, e.getMessage());
-            return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
+            return Response.status(HttpServletResponse.SC_BAD_REQUEST).entity(new ArrayList<>()).build();
         }
     }
 
     @GET
-    @Path("/all-activated")
     @Produces(MediaType.APPLICATION_JSON)
-    public String allActivatedProfil() {
+    public Response allActivatedProfil() {
         try {
-            return jsonResponse.getGsonInstance().toJson(iProfilDao.allByStatusProfil(true));
+            return Response.status(HttpServletResponse.SC_OK).entity(service.allByStatusProfil(true)).build();
         } catch (Exception e) {
             LOGGER.log(Level.INFO, e.getMessage());
-            return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
+            return Response.status(HttpServletResponse.SC_BAD_REQUEST).entity(new ArrayList<Profil>()).build();
         }
     }
 
     @GET
     @Path("/all-disabled")
     @Produces(MediaType.APPLICATION_JSON)
-    public String allDisabledProfil() {
+    public Response allDisabledProfil() {
         try {
-            return jsonResponse.getGsonInstance().toJson(iProfilDao.allByStatusProfil(false));
+            return Response.status(HttpServletResponse.SC_OK).entity(service.allByStatusProfil(false)).build();
         } catch (Exception e) {
             LOGGER.log(Level.INFO, e.getMessage());
-            return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
+            return Response.status(HttpServletResponse.SC_BAD_REQUEST).entity(new ArrayList<Profil>()).build();
         }
     }
 
     @GET
     @Path("/all-archived")
     @Produces(MediaType.APPLICATION_JSON)
-    public String allArchivedProfil() {
+    public Response allArchivedProfil() {
         try {
-            return jsonResponse.getGsonInstance().toJson(iProfilDao.allByArchivedProfil(true));
+            return Response.status(HttpServletResponse.SC_OK).entity(service.allByArchivedProfil(true)).build();
         } catch (Exception e) {
             LOGGER.log(Level.INFO, e.getMessage());
-            return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
+            return Response.status(HttpServletResponse.SC_BAD_REQUEST).entity(new ArrayList<Profil>()).build();
         }
     }
 
     @GET
     @Path("/all-none-archived")
     @Produces(MediaType.APPLICATION_JSON)
-    public String allNoneArchivedProfil() {
+    public Response allNoneArchivedProfil() {
         try {
-            return jsonResponse.getGsonInstance().toJson(iProfilDao.allByArchivedProfil(false));
+            return Response.status(HttpServletResponse.SC_OK).entity(service.allByArchivedProfil(false)).build();
         } catch (Exception e) {
             LOGGER.log(Level.INFO, e.getMessage());
-            return jsonResponse.getGsonInstance().toJson(new ArrayList<Profil>());
+            return Response.status(HttpServletResponse.SC_BAD_REQUEST).entity(new ArrayList<Profil>()).build();
         }
     }
 }

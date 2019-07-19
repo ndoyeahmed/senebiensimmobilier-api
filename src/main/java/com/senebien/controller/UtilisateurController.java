@@ -1,9 +1,8 @@
 package main.java.com.senebien.controller;
 
 
-import main.java.com.senebien.dao.ProfilDao;
-import main.java.com.senebien.dao.UtilisateurDao;
 import main.java.com.senebien.models.Utilisateur;
+import main.java.com.senebien.services.UtilisateurService;
 import main.java.com.senebien.utils.JsonResponse;
 import main.java.com.senebien.utils.UserLogin;
 
@@ -13,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,12 +27,9 @@ public class UtilisateurController extends BaseController {
 
     private static final String ERROR_CODE = "error";
     private static final String SUCCES_CODE = "success";
-
-    private final UtilisateurDao utilisateurDao = new UtilisateurDao();
-
-    private final ProfilDao profilDao = new ProfilDao();
-
     private JsonResponse jsonResponse = new JsonResponse();
+    private final UtilisateurService service = new UtilisateurService();
+
 
     @POST
     @Path("/add-user")
@@ -47,66 +44,68 @@ public class UtilisateurController extends BaseController {
         utilisateur.setArchive(false);
         utilisateur.setStatus(true);
         utilisateur.setDate(Timestamp.valueOf(LocalDateTime.now()));
-        utilisateur.setProfil(profilDao.getOneById(utilisateur.getProfil().getId()));
-        if (utilisateurDao.create(utilisateur))
-            return Response.status(200).entity(Collections.singletonMap(SUCCES_CODE, true)).build();
+        utilisateur.setProfil(service.getProfilById(utilisateur.getProfil().getId()));
+        if (service.addUser(utilisateur))
+            return Response.status(HttpServletResponse.SC_OK).entity(Collections.singletonMap(SUCCES_CODE, true)).build();
         else
-            return Response.status(400).entity(Collections.singletonMap(ERROR_CODE, false)).build();
+            return Response.status(HttpServletResponse.SC_BAD_REQUEST).entity(Collections.singletonMap(ERROR_CODE, false)).build();
     }
 
     @GET
     @Path("/all-user")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUser() {
-        List<Utilisateur> utilisateurs = utilisateurDao.all();
-        return Response.status(200).entity(utilisateurs)
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS")
-                .build();
+        try {
+            List<Utilisateur> utilisateurs = service.allUser();
+            return Response.status(HttpServletResponse.SC_OK).entity(utilisateurs).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(HttpServletResponse.SC_BAD_REQUEST).entity(new ArrayList<>()).build();
+        }
     }
 
     @GET
     @Path("/all-activated-user")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAllActivatedUser() {
-        List<Utilisateur> utilisateurs = utilisateurDao.allActivatedUser();
-        return jsonResponse.getGsonInstance().toJson(utilisateurs);
+    public Response getAllActivatedUser() {
+        List<Utilisateur> utilisateurs = service.allUserByStatus(true);
+        return Response.status(HttpServletResponse.SC_OK).entity(utilisateurs).build();
     }
 
     @GET
     @Path("/all-disabled-user")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAllDisabledUser() {
-        List<Utilisateur> utilisateurs = utilisateurDao.allDesactivatedUser();
-        return jsonResponse.getGsonInstance().toJson(utilisateurs);
+    public Response getAllDisabledUser() {
+        List<Utilisateur> utilisateurs = service.allUserByStatus(false);
+        return Response.status(HttpServletResponse.SC_OK).entity(utilisateurs).build();
     }
 
     @GET
     @Path("/all-archived-user")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAllArchivedUser() {
-        List<Utilisateur> utilisateurs = utilisateurDao.allArchivedUser();
-        return jsonResponse.getGsonInstance().toJson(utilisateurs);
+    public Response getAllArchivedUser() {
+        List<Utilisateur> utilisateurs = service.allUserByArchive(true);
+        return Response.status(HttpServletResponse.SC_OK).entity(utilisateurs).build();
     }
 
     @GET
     @Path("/all-unarchived-user")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAllUnarchivedUser() {
-        List<Utilisateur> utilisateurs = utilisateurDao.allUnarchivedUser();
-        return jsonResponse.getGsonInstance().toJson(utilisateurs);
+    public Response getAllUnarchivedUser() {
+        List<Utilisateur> utilisateurs = service.allUserByArchive(false);
+        return Response.status(HttpServletResponse.SC_OK).entity(utilisateurs).build();
     }
 
     @POST
     @Path("/get-user-by-id")
     @Consumes(MediaType.TEXT_PLAIN)
     @Produces(MediaType.APPLICATION_JSON)
-    public String getUserById(String body) {
-        Utilisateur utilisateur = utilisateurDao.getUserById(Long.valueOf(body));
+    public Response getUserById(String body) {
+        Utilisateur utilisateur = service.getUserById(Long.valueOf(body));
         if (utilisateur != null) {
-            return jsonResponse.getGsonInstance().toJson(utilisateur);
+            return Response.status(HttpServletResponse.SC_OK).entity(utilisateur).build();
         } else
-            return jsonResponse.getGsonInstance().toJson(Collections.singletonMap(ERROR_CODE, HttpServletResponse.SC_EXPECTATION_FAILED));
+            return Response.status(HttpServletResponse.SC_EXPECTATION_FAILED).entity(Collections.singletonMap(ERROR_CODE, null)).build();
     }
 
     @POST
@@ -114,12 +113,10 @@ public class UtilisateurController extends BaseController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(UserLogin userLogin) {
-        System.out.println("username and password " + userLogin.getLogin() + " " + userLogin.getPassword());
-//        UserLogin userLogin = jsonResponse.getGsonInstance().fromJson(body, UserLogin.class);
-        Utilisateur utilisateur = utilisateurDao.getUserByUsernameAndPasswordAndProfile(userLogin.getLogin(), userLogin.getPassword());
+        Utilisateur utilisateur = service.login(userLogin);
         if (utilisateur != null) {
-            return Response.status(200).entity(Collections.singletonMap(SUCCES_CODE, utilisateur)).build();
+            return Response.status(HttpServletResponse.SC_OK).entity(Collections.singletonMap(SUCCES_CODE, utilisateur)).build();
         } else
-            return Response.status(401).entity(Collections.singletonMap(SUCCES_CODE, false)).build();
+            return Response.status(HttpServletResponse.SC_FORBIDDEN).entity(Collections.singletonMap(SUCCES_CODE, false)).build();
     }
 }

@@ -33,28 +33,16 @@ public interface IUtilisateurDao {
     List<Utilisateur> all();
 
     /**
-     * Function prototype to get all users that there account is activated
+     * Function prototype to get all users by status value
      * @return return a list of users
      */
-    List<Utilisateur> allActivatedUser();
+    List<Utilisateur> allUserByStatus(boolean status);
 
     /**
-     * Function prototype to get all users that there account is disabled
+     * Function prototype to get the list of users by archive value
      * @return return a list of users
      */
-    List<Utilisateur> allDesactivatedUser();
-
-    /**
-     * Function prototype to get the list of users that are archived
-     * @return return a list of users
-     */
-    List<Utilisateur> allArchivedUser();
-
-    /**
-     * Function prototype to get the list of users that are archived
-     * @return return a list of users
-     */
-    List<Utilisateur> allUnarchivedUser();
+    List<Utilisateur> allUserByArchive(boolean archive);
 
     /**
      * Function prototype to get a user by his id

@@ -55,9 +55,11 @@ public class UtilisateurDao implements IUtilisateurDao {
     }
 
     @Override
-    public List<Utilisateur> allActivatedUser() {
+    public List<Utilisateur> allUserByStatus(boolean status) {
         try {
-            return session.createQuery("select u from Utilisateur u where u.status = true ", Utilisateur.class).getResultList();
+            return session.createQuery("select u from Utilisateur u where u.status =:status and u.archive=false ", Utilisateur.class)
+                    .setParameter("status", status)
+                    .getResultList();
         } catch (Exception e) {
             LOGGER.log(Level.INFO, e.getMessage());
             return new ArrayList<>();
@@ -65,29 +67,11 @@ public class UtilisateurDao implements IUtilisateurDao {
     }
 
     @Override
-    public List<Utilisateur> allDesactivatedUser() {
+    public List<Utilisateur> allUserByArchive(boolean archive) {
         try {
-            return session.createQuery("select u from Utilisateur u where u.status = false ", Utilisateur.class).getResultList();
-        } catch (Exception e) {
-            LOGGER.log(Level.INFO, e.getMessage());
-            return new ArrayList<>();
-        }
-    }
-
-    @Override
-    public List<Utilisateur> allArchivedUser() {
-        try {
-            return session.createQuery("select u from Utilisateur u where u.archive = true ", Utilisateur.class).getResultList();
-        } catch (Exception e) {
-            LOGGER.log(Level.INFO, e.getMessage());
-            return new ArrayList<>();
-        }
-    }
-
-    @Override
-    public List<Utilisateur> allUnarchivedUser() {
-        try {
-            return session.createQuery("select u from Utilisateur u where u.archive = false ", Utilisateur.class).getResultList();
+            return session.createQuery("select u from Utilisateur u where u.archive=:archive ", Utilisateur.class)
+                    .setParameter("archive", archive)
+                    .getResultList();
         } catch (Exception e) {
             LOGGER.log(Level.INFO, e.getMessage());
             return new ArrayList<>();
