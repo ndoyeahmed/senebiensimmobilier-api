@@ -46,7 +46,7 @@ public class UtilisateurController extends BaseController {
         utilisateur.setDate(Timestamp.valueOf(LocalDateTime.now()));
         utilisateur.setProfil(service.getProfilById(utilisateur.getProfil().getId()));
         if (service.addUser(utilisateur))
-            return Response.status(HttpServletResponse.SC_OK).entity(Collections.singletonMap(SUCCES_CODE, true)).build();
+            return Response.status(HttpServletResponse.SC_OK).entity(Collections.singletonMap(SUCCES_CODE, service.allUserByStatus(true))).build();
         else
             return Response.status(HttpServletResponse.SC_BAD_REQUEST).entity(Collections.singletonMap(ERROR_CODE, false)).build();
     }
@@ -118,6 +118,6 @@ public class UtilisateurController extends BaseController {
         if (utilisateur != null) {
             return Response.status(HttpServletResponse.SC_OK).entity(Collections.singletonMap(SUCCES_CODE, utilisateur)).build();
         } else
-            return Response.status(HttpServletResponse.SC_FORBIDDEN).entity(Collections.singletonMap(SUCCES_CODE, false)).build();
+            return Response.status(HttpServletResponse.SC_FORBIDDEN).entity(Collections.singletonMap(ERROR_CODE, false)).build();
     }
 }

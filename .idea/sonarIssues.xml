@@ -28,6 +28,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/boutique-list/list-all/list-all.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/boutique-list/list-archived/list-archived.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/boutique-list/list-archived/list-archived.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/fiche-commande-liste/fiche-commande-liste.component.html">
           <value>
             <set />
@@ -63,6 +78,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/pages-routing.module.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/pages.module.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/services/boutique.service.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/services/graqhql-queries.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../../../Angular_project/madjindo/src/app/pages/user-list/user-list.component.html">
           <value>
             <set />
@@ -79,6 +114,36 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/package.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Bailleur/BailleurComponent.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Bailleur/BailleurListComponent.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Client/ClientComponent.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Client/ClientListComponent.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Location/LocationComponent.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/Components/Location/LocationListComponent.js">
           <value>
             <set />
           </value>
@@ -103,7 +168,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/_nav.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/containers/DefaultLayout/DefaultHeader.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/routes.js">
           <value>
             <set />
           </value>
@@ -114,6 +189,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/services/auth.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/services/bienService.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../TEMPLATE/coreui-free-react-admin-template/src/services/locationService.js">
           <value>
             <set />
           </value>
@@ -143,12 +228,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/controller/ClientController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/senebien/controller/ProfilController.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/senebien/controller/UtilisateurController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/dao/ClientDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/senebien/dao/IClientDao.java">
           <value>
             <set />
           </value>
@@ -268,6 +368,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../NodeJS_Project/myFirstModule.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../NodeJS_Project/myFirstServer.js">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/pom.xml">
           <value>
             <set />
@@ -278,12 +388,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/controller/CORSFilter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/controller/LocationController.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/controller/PaiementController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/controller/UserController.java">
           <value>
             <set />
           </value>
@@ -304,6 +424,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/Location.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/BackEnd-immo/src/main/java/com/m1gl/models/Paiement.java">
           <value>
             <set />
           </value>
@@ -358,7 +483,202 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/Procfile">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/config/HibernateConfiguration.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/controller/BienControlleur.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/controller/ClientController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/controller/LocationController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/controller/PaiementController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/controller/ParametragesController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/controller/ProfilController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/controller/UserController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/models/Bien.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/models/Client.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/models/Location.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/models/Paiement.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/models/Personne.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/models/Typebien.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/models/User.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/models/Utilisateur.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/IBienServices.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/IClientServices.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/ILocationServices.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/IPaiement.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/IParametrage.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/IProfilDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/IUserServices.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/implementations/BienDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/implementations/ClientDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/implementations/LocationDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/implementations/PaiementDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/implementations/ParametrageDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/implementations/ProfilDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/java/com/m1gl/services/implementations/UserDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/resources/hibernate-postgres.cfg.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/resources/hibernate.cfg.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../REACT_Project/heroku/BackEnd-immo/src/main/webapp/WEB-INF/web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/graphql/QueryResolver.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/repositories/BoutiqueRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/services/BoutiqueService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/java/com/rezilux/madjindoapi/services/FicheDistributionService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../SpringBootApp/madjindo-api/src/main/resources/schema.graphqls">
           <value>
             <set />
           </value>
